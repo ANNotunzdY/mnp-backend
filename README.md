@@ -1,1 +1,1 @@
-# mnp-backend
+# MacNicoPlayer(Re:仮)バックエンドサーバ
