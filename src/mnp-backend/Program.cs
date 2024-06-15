@@ -116,14 +116,18 @@ app.MapGet("/all", async () =>
         TableName = tableName
     };
     var scanResponse = await dynamoDbClient.ScanAsync(scanRequest);
-    var items = new List<Dictionary<string, string>>();
+    var items = new List<Dictionary<string, object>>();
 
     foreach (var item in scanResponse.Items)
     {
-        var dictItem = new Dictionary<string, string>();
+        var dictItem = new Dictionary<string, object>();
         foreach (var kvp in item)
         {
-            dictItem[kvp.Key] = kvp.Value.S;
+	    if (kvp.Key == "id") {
+                dictItem[kvp.Key] = kvp.Value.S;
+            } else {
+                dictItem[kvp.Key] = new string[] {kvp.Value.S};
+            }
         }
         items.Add(dictItem);
     }
