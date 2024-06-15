@@ -12,5 +12,5 @@ dotnet lambda deploy-serverless
 ```
 
 ## CloudSearchの更新
-以下のLambdaをEventBridge Schedulerで定期的に呼んでいます
+以下のLambdaをEventBridge Schedulerで定期的に呼んでいます  
 https://github.com/ANNotunzdY/mnp-updater/
